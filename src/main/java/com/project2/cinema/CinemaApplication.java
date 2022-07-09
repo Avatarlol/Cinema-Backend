@@ -24,10 +24,14 @@ public class CinemaApplication {
 		EventRepository eventRep = ctx.getBean(EventRepository.class);
 		
 //		Movie movie1 = Movie.builder()
-//				.name("Harry ter")
+//				.name("Harry Potter")
 //				.desc("harry potter movie stuff")
 //				.genre(Genre.ADVENTURE)
 //				.build();
+//		
+//		System.out.println(movie1);
+//		movieRep.save(movie1);
+//		
 //		
 //		Theater th = Theater.builder()
 //				.seats(50)
