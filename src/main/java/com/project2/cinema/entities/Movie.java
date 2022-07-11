@@ -1,5 +1,7 @@
 package com.project2.cinema.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,14 +14,18 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Component
 @Table(name = "movies")
 @Scope("prototype")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Movie {
 
@@ -33,6 +39,7 @@ public class Movie {
 	@Column(name = "movie_desc")
 	private String desc;
 	
+	
 	public enum Genre {
 		HORROR,
 		COMEDY,
@@ -40,5 +47,5 @@ public class Movie {
 		ACTION,
 		ADVENTURE
 	}
-		
+	
 }

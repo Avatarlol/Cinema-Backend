@@ -6,13 +6,12 @@ import com.project2.cinema.entities.Movie;
 
 public class mainTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
 		
 		Movie o = Movie.builder().build();
 		System.out.println(o);
 		
 		Class<?> objClass = o.getClass();
-		
 		
 		Field savedField = null;
 		for (Field field : objClass.getDeclaredFields()) {
@@ -20,7 +19,7 @@ public class mainTest {
 			if(savedField==null) {
 				savedField = field;
 			}else {
-				field = savedField;
+				field.set(o, savedField);;
 			}
 			
 		}
