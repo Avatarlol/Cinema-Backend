@@ -39,7 +39,7 @@ public class Event {
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	private Theater theater;
 	@Column(name = "start_time")
-	private LocalDateTime start_time;
+	private LocalDateTime startTime;
 	@Column(name = "tickets_bought")
 	private int tickets_bought;
 	

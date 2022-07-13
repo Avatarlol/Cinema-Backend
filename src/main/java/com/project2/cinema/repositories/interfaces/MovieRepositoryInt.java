@@ -6,11 +6,11 @@ import com.project2.cinema.entities.Movie;
 
 public abstract interface MovieRepositoryInt {
 
-	public boolean addMovie(Movie movie);
+	public Movie addMovie(Movie movie);
 	
-	public boolean updateMovie(Movie movie);
+	public Movie updateMovie(Movie movie);
 	
-	public boolean deleteMovie(int id);
+	public void deleteMovie(int id);
 	
 	public Movie getMovie(int id);
 	

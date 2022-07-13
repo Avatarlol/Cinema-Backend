@@ -6,11 +6,11 @@ import com.project2.cinema.entities.Theater;
 
 public abstract interface TheaterRepositoryInt {
 
-	public boolean addTheater(Theater theater);
+	public Theater addTheater(Theater theater);
 	
-	public boolean updateTheater(Theater theater);
+	public Theater updateTheater(Theater theater);
 	
-	public boolean deleteTheater(int id);
+	public void deleteTheater(int id);
 	
 	public Theater getTheater(int id);
 	

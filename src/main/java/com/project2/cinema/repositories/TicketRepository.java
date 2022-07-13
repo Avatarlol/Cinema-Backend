@@ -13,16 +13,15 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer>, Ticket
 
 	//TODO
 	
-	public default boolean addTickets(Iterable<Ticket> tickets) {
-		return false;
+	public default Ticket addTickets(Iterable<Ticket> tickets) {
+		return null;
 	}
 	
-	public default boolean updateTickets(Iterable<Ticket> tickets) {
-		return false;
+	public default Ticket updateTickets(Iterable<Ticket> tickets) {
+		return null;
 	}
 	
-	public default boolean deleteTickets(Iterable<Ticket> tickets) {
-		return false;
+	public default void deleteTickets(Iterable<Ticket> tickets) {
 	}
 	
 	public default List<Ticket> getTicketsBySeat(Iterable<Integer> seatNums) {

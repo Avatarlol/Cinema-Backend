@@ -13,20 +13,20 @@ public interface MovieRepository extends JpaRepository<Movie, Integer>, MovieRep
 
 	//TODO
 	
-	public default boolean addMovie(Movie movie) {
-		return false;
+	public default Movie addMovie(Movie movie) {
+		return null;
 	}
 	
-	public default boolean updateMovie(Movie movie) {
-		return false;
+	public default Movie updateMovie(Movie movie) {
+		return null;
 	}
 	
-	public default boolean deleteMovie(int id) {
-		return false;
+	public default void deleteMovie(int id) {
 	}
 	
 	public default Movie getMovie(int id) {
-		return null;
+		Movie movie = findById(id).get();
+		return movie;
 	}
 	
 	public default List<Movie> getAllMovies(){

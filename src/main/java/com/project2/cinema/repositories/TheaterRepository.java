@@ -13,16 +13,15 @@ public interface TheaterRepository extends JpaRepository<Theater, Integer>, Thea
 
 	//TODO
 	
-	public default boolean addTheater(Theater theater) {
-		return false;
+	public default Theater addTheater(Theater theater) {
+		return null;
 	}
 	
-	public default boolean updateTheater(Theater theater) {
-		return false;
+	public default Theater updateTheater(Theater theater) {
+		return null;
 	}
 	
-	public default boolean deleteTheater(int id) {
-		return false;
+	public default void deleteTheater(int id) {
 	}
 	
 	public default Theater getTheater(int id) {

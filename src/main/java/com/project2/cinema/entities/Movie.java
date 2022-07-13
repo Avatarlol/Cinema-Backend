@@ -1,6 +1,7 @@
 package com.project2.cinema.entities;
 
-import java.util.List;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +39,8 @@ public class Movie {
 	private Genre genre;
 	@Column(name = "movie_desc")
 	private String desc;
-	
+	@Column(name = "length")
+	private Duration length;
 	
 	public enum Genre {
 		HORROR,

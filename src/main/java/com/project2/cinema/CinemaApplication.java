@@ -1,6 +1,10 @@
 package com.project2.cinema;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,53 +36,37 @@ public class CinemaApplication {
 		TicketRepositoryInt ticketRep = ctx.getBean(TicketRepository.class);
 		EventRepositoryInt eventRep = ctx.getBean(EventRepository.class);
 		
-		Theater t = Theater.builder()
-				.id(8)
-				.seats(10)
-				.theaterNumber(1)
-				.build();
+//		Theater t = Theater.builder()
+//				.id(8)
+//				.seats(20)
+//				.theaterNumber(1)
+//				.build();
 		
-		Movie m = Movie.builder()
-				.id(3)
-				.desc("description")
-				.genre(Genre.ADVENTURE)
-				.name("movie name")
-				.build();
+//		e.getMovie().setLength(Duration.ofMinutes(131));
+//		eventRep.updateEvent(e);
 		
-		Event e = ctx.getBean(Event.class);
-		
-		e.setMovie(movieRep.getMovie(3));
-		e.setStart_time(LocalDateTime.of(2022,10,1,20,30));
-		e.setTheater(theaterRep.getTheater(8));
-		
+//		
+//		Movie m = Movie.builder()
+//				.id(3)
+//				.desc("description")
+//				.genre(Genre.ADVENTURE)
+//				.name("movie name")
+//				.build();
+//		
+//		
 //		Event e = Event.builder()
 //				.id(0)
-//				.start_time(LocalDateTime.of(2022,10,1,20,30))
-//				.movie(movieRep.getById(3))
-//				.theater(theaterRep.getById(8))
+//				.startTime(LocalDateTime.of(2022,7,15,10,00))
+//				.movie(null)
+//				.theater(null)
 //				.build();
+//
+//		eventRep.addEvent(e);
+	
+		Movie m = movieRep.getMovie(1);
+		System.out.println(m + "\n");
 		
-		System.out.println(e);
-		
-		eventRep.addEvent(e);
-		
-//		Movie movie1 = Movie.builder()
-//				.name("Harry Potter")
-//				.desc("harry potter movie stuff")
-//				.genre(Genre.ADVENTURE)
-//				.build();
-//		
-//		System.out.println(movie1);
-//		movieRep.save(movie1);
-//		
-//		
-//		Theater th = Theater.builder()
-//				.seats(50)
-//				.build();
-//		
-//		System.out.println(th);
-//		
-//		theaterRep.save(th);
+		System.out.println(eventRep.getEventsByMovie(m));
 		
 	}
 
