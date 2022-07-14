@@ -40,7 +40,7 @@ public class Event {
 	private Theater theater;
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
-	@Column(name = "tickets_bought")
-	private int tickets_bought;
+	@Column(name = "tickets_sold")
+	private int tickets_sold;
 	
 }

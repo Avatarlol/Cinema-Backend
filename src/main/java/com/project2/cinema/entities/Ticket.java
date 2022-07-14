@@ -1,5 +1,7 @@
 package com.project2.cinema.entities;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,14 +15,18 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Component
 @Scope("prototype")
 @Table(name = "tickets")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Ticket {
 

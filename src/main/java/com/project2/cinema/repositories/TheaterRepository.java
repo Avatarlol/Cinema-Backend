@@ -10,26 +10,25 @@ import com.project2.cinema.repositories.interfaces.TheaterRepositoryInt;
 
 @Service
 public interface TheaterRepository extends JpaRepository<Theater, Integer>, TheaterRepositoryInt {
-
-	//TODO
 	
 	public default Theater addTheater(Theater theater) {
-		return null;
+		return save(theater);
 	}
 	
 	public default Theater updateTheater(Theater theater) {
-		return null;
+		return save(theater);
 	}
 	
 	public default void deleteTheater(int id) {
+		deleteById(id);
 	}
 	
 	public default Theater getTheater(int id) {
-		return null;
+		return findById(id).get();
 	}
 	
 	public default List<Theater> getAllTheaters() {
-		return null;
+		return findAll();
 	}
 	
 }

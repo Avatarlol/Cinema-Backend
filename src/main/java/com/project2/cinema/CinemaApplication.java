@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,7 @@ import com.project2.cinema.entities.Event;
 import com.project2.cinema.entities.Movie;
 import com.project2.cinema.entities.Movie.Genre;
 import com.project2.cinema.entities.Theater;
+import com.project2.cinema.entities.Ticket;
 import com.project2.cinema.repositories.EventRepository;
 import com.project2.cinema.repositories.MovieRepository;
 import com.project2.cinema.repositories.TheaterRepository;
@@ -63,10 +65,14 @@ public class CinemaApplication {
 //
 //		eventRep.addEvent(e);
 	
-		Movie m = movieRep.getMovie(1);
-		System.out.println(m + "\n");
-		
-		System.out.println(eventRep.getEventsByMovie(m));
+//		Movie m = movieRep.getMovie(1);
+//		System.out.println(m + "\n");
+//		
+//		System.out.println(eventRep.getEventsByMovie(m));
+		Event event = eventRep.getEvent(20);
+		List<Integer> seats = List.of(13,14);
+		List<Ticket> tickets = ticketRep.getTicketsByEventAndSeat(event, seats);
+		System.out.println(tickets);
 		
 	}
 

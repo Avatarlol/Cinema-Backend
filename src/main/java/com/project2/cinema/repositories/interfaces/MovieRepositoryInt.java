@@ -16,6 +16,4 @@ public abstract interface MovieRepositoryInt {
 	
 	public List<Movie> getAllMovies();
 	
-	public List<Movie> getMoviesByDay();
-	
 }

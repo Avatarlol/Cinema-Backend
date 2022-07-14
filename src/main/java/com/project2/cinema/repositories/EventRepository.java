@@ -12,44 +12,36 @@ import com.project2.cinema.repositories.interfaces.EventRepositoryInt;
 
 
 public interface EventRepository extends JpaRepository<Event, Integer>, EventRepositoryInt {
-
-	//TODO	
 	
 	public default Event addEvent(Event event) {
-		event = save(event);
-		return event;
+		return save(event);
 	}
 	
 	public default Event updateEvent(Event event) {
-		event = save(event);
-		return event;
+		return save(event);
 	}
 	
 	public default void deleteEvent(int id) {
-			deleteById(id);
-		}
+		deleteById(id);
+	}
 		
 	
 	public default Event getEvent(int id) {
-		Event event = findById(id).get();
-		return event;
+		return findById(id).get();
 	}
 	
 	public default List<Event> getAllEvents() {
-		List<Event> events = findAll();
-		return events;
+		return findAll();
 	}
 	
 	public default List<Event> getEventsByDay(LocalDateTime date) {
-		List<Event> events = findByStartTimeBetween(date, date.plusDays(1));
-		return events;
+		return findByStartTimeBetween(date, date.plusDays(1));
 	}
 	
 	public List<Event> findByStartTimeBetween(LocalDateTime after, LocalDateTime before);
 	
 	public default List<Event> getEventsByMovie(Movie movie) {
-		List<Event> events = findByMovie(movie);
-		return events;
+		return findByMovie(movie);
 	}
 	
 	public List<Event> findByMovie(Movie movie);

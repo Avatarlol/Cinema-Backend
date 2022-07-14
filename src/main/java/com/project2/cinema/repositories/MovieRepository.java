@@ -10,31 +10,25 @@ import com.project2.cinema.repositories.interfaces.MovieRepositoryInt;
 
 @Service
 public interface MovieRepository extends JpaRepository<Movie, Integer>, MovieRepositoryInt{
-
-	//TODO
 	
 	public default Movie addMovie(Movie movie) {
-		return null;
+		return save(movie);
 	}
 	
 	public default Movie updateMovie(Movie movie) {
-		return null;
+		return save(movie);
 	}
 	
 	public default void deleteMovie(int id) {
+		deleteById(id);
 	}
 	
 	public default Movie getMovie(int id) {
-		Movie movie = findById(id).get();
-		return movie;
+		return findById(id).get();
 	}
 	
 	public default List<Movie> getAllMovies(){
-		return null;
-	}
-	
-	public default List<Movie> getMoviesByDay(){
-		return null;
+		return findAll();
 	}
 	
 }
