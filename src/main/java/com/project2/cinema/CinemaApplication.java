@@ -38,6 +38,7 @@ public class CinemaApplication {
 		TicketRepositoryInt ticketRep = ctx.getBean(TicketRepository.class);
 		EventRepositoryInt eventRep = ctx.getBean(EventRepository.class);
 		
+		
 //		Theater t = Theater.builder()
 //				.id(8)
 //				.seats(20)

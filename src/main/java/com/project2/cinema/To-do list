@@ -1,0 +1,2 @@
+Logger - logging into a file with timestamp and action
+Class that emails the purchaser a link to cancel purchase until 2 hours before event starts

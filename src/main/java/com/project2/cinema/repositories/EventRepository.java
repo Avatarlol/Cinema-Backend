@@ -1,6 +1,5 @@
 package com.project2.cinema.repositories;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -9,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.project2.cinema.entities.Event;
 import com.project2.cinema.entities.Movie;
 import com.project2.cinema.repositories.interfaces.EventRepositoryInt;
-
 
 public interface EventRepository extends JpaRepository<Event, Integer>, EventRepositoryInt {
 	

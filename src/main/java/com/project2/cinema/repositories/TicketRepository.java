@@ -3,13 +3,11 @@ package com.project2.cinema.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
 
 import com.project2.cinema.entities.Event;
 import com.project2.cinema.entities.Ticket;
 import com.project2.cinema.repositories.interfaces.TicketRepositoryInt;
 
-@Service
 public interface TicketRepository extends JpaRepository<Ticket, Integer>, TicketRepositoryInt {
 	
 	public default Iterable<Ticket> addTickets(Iterable<Ticket> tickets) {
