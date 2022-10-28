@@ -18,7 +18,7 @@ public abstract interface EventRepositoryInt{
 	
 	public List<Event> getAllEvents();
 	
-	public List<Event> getEventsByDay(LocalDateTime localDateTime);
+	public List<Event> getEventsByDay(LocalDateTime day);
 	
 	public List<Event> getEventsByMovie(Movie movie);
 	

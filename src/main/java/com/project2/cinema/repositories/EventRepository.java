@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.project2.cinema.entities.Event;
 import com.project2.cinema.entities.Movie;
@@ -43,4 +45,11 @@ public interface EventRepository extends JpaRepository<Event, Integer>, EventRep
 	}
 	
 	public List<Event> findByMovie(Movie movie);
+	
+	public List<Event> findByStartTimeBeforeAndEndTimeAfter(LocalDateTime startTime, LocalDateTime endTime);
+	
+	@Query(nativeQuery = true, value = "select * from cinema.events where theater_id = :theaterId  and (:startTime < end_time and :endTime > start_time)")
+	public List<Event> isAnyOverlaps(@Param("startTime") LocalDateTime startTime, @Param("endTime")LocalDateTime endTime, @Param("theaterId") int theaterId);
+	
+	
 }

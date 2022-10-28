@@ -28,5 +28,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer>, MovieRep
 	public default List<Movie> getAllMovies(){
 		return findAll();
 	}
+
+	public boolean existsByName(String name);
 	
 }

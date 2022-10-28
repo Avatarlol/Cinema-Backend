@@ -28,5 +28,7 @@ public interface TheaterRepository extends JpaRepository<Theater, Integer>, Thea
 	public default List<Theater> getAllTheaters() {
 		return findAll();
 	}
+
+	public boolean existsByTheaterNumber(int theaterNumber);
 	
 }
