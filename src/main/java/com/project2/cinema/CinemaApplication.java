@@ -1,6 +1,5 @@
 package com.project2.cinema;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -29,6 +28,8 @@ import com.project2.cinema.repositories.interfaces.TheaterRepositoryInt;
 import com.project2.cinema.repositories.interfaces.TicketRepositoryInt;
 import com.project2.cinema.services.AdminService;
 import com.project2.cinema.services.GuestService;
+import com.project2.cinema.util.DateUtil;
+import com.project2.cinema.util.Random;
 
 @SpringBootApplication
 public class CinemaApplication {
@@ -41,17 +42,39 @@ public class CinemaApplication {
 //		TicketRepositoryInt ticketRep = ctx.getBean(TicketRepository.class);
 		EventRepositoryInt eventRep = ctx.getBean(EventRepository.class);
 		
+		
 		AdminService admin = ctx.getBean(AdminService.class);
 		GuestService guest = ctx.getBean(GuestService.class);
-		
-		Movie m = admin.getMovie(4);
-		Event e = admin.getEvent(13);
-		Theater t = admin.getTheater(9);
-		
-		Event ev = new Event(0, m, t, e.getStartTime(),e.getStartTime().plusSeconds(m.getLength().getSeconds()), 0);
+
+		Event ev;
 		try {
-//			eventRep.addEvent(ev);
-			admin.addEvent(ev);
+			for (int i = 0; i < 100; i++) {
+				Movie m = admin.getMovie(Random.RandomBetween(2, 15));
+				Theater t = admin.getTheater(Random.RandomBetween(200, 201));
+				LocalDateTime start = LocalDateTime.of(2022, 11, Random.RandomBetween(7, 15), Random.RandomBetween(10, 23), Random.RandomBetween(0, 1)*30);
+				System.out.println("iteration: "+i);
+				ev = new Event(0, m, t, start);	
+				try {
+					admin.addEvent(ev);
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+			
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+//		Movie movie = new Movie(0, 
+//				"Bullet Train",
+//				Genre.ACTION, "some description",
+//				Duration.ofHours(2).plusMinutes(6),
+//				"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSa_XrN4EhTrkQgTNM9vlQbwZ5VqhVLh7rqWAJ6un2GZdhjgR6K");
+		
+		try {
+//			admin.addMovie(movie);
+//			admin.addEvent(ev);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

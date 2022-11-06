@@ -69,7 +69,7 @@ public class AdminService extends ClientService{
 	
 	public void addEvent(Event event) throws ConditionsNotMet {
 		if(condition.newEventCondition(event)) {
-//			eventRepository.addEvent(event);
+			eventRepository.addEvent(event);
 			//TODO generate tickets 
 			return;
 		}

@@ -104,6 +104,9 @@ public class Conditions {
 		
 		boolean isNotOverlaps = false;
 		
+		if(list.isEmpty())
+			isNotOverlaps = true;
+		
 		if(isNotOverlaps)
 			return true;
 		throw new ConditionsNotMet();

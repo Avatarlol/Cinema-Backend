@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.project2.cinema.entities.Event;
 import com.project2.cinema.entities.Movie;
+import com.project2.cinema.entities.Movie.Genre;
 import com.project2.cinema.entities.Theater;
 import com.project2.cinema.repositories.interfaces.EventRepositoryInt;
 import com.project2.cinema.repositories.interfaces.MovieRepositoryInt;
@@ -36,12 +37,20 @@ public abstract class ClientService {
 		return eventRepository.getAllEvents();
 	}
 	
-	public List<Event> getEventsByDay(LocalDateTime day) {
-		return eventRepository.getEventsByDay(day);
+	public List<Event> getEventsByDate(LocalDateTime day) {
+		return eventRepository.getEventsByDate(day);
 	}
 	
 	public List<Event> getEventsByMovie(Movie movie) {
 		return eventRepository.getEventsByMovie(movie);
+	}
+	
+	public List<Event> getEventsByMovieName(String name){
+		return eventRepository.findByMovieNameContaining(name);
+	}
+	
+	public List<Event> getEventByDateAndMovieName(LocalDateTime date, String name){
+		return eventRepository.getEventsByDateAndName(date, name);
 	}
 	
 	//MOVIES
@@ -53,5 +62,15 @@ public abstract class ClientService {
 	public List<Movie> getAllMovies() {
 		return movieRepository.getAllMovies();
 	}
+	
+	public List<Movie> getMoviesByGenre(Genre genre){
+		return movieRepository.findByGenre(genre);
+	}
+	
+	public List<Movie> getMoviesByName(String name){
+		return movieRepository.findByNameContaining(name);
+	}
+	
+
 	
 }

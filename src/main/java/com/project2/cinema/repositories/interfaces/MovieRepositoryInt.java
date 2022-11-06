@@ -3,6 +3,7 @@ package com.project2.cinema.repositories.interfaces;
 import java.util.List;
 
 import com.project2.cinema.entities.Movie;
+import com.project2.cinema.entities.Movie.Genre;
 
 public abstract interface MovieRepositoryInt {
 
@@ -15,5 +16,9 @@ public abstract interface MovieRepositoryInt {
 	public Movie getMovie(int id);
 	
 	public List<Movie> getAllMovies();
+	
+	public List<Movie> findByGenre(Genre genre);
+	
+	public List<Movie> findByNameContaining(String name);
 	
 }

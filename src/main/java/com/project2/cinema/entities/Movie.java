@@ -41,13 +41,18 @@ public class Movie {
 	private String desc;
 	@Column(name = "length")
 	private Duration length;
+	@Column(name = "image")
+	private String image;
 	
 	public enum Genre {
 		HORROR,
 		COMEDY,
 		SCI_FI,
 		ACTION,
-		ADVENTURE
+		ADVENTURE,
+		ROMANCE,
+		DRAMA,
+		FANTASY,
 	}
 	
 }

@@ -34,9 +34,15 @@ public interface EventRepository extends JpaRepository<Event, Integer>, EventRep
 		return findAll();
 	}
 	
-	public default List<Event> getEventsByDay(LocalDateTime date) {
+	public default List<Event> getEventsByDate(LocalDateTime date) {
 		return findByStartTimeBetween(date, date.plusDays(1));
 	}
+	
+	public default List<Event> getEventsByDateAndName(LocalDateTime date, String name){
+		return findByStartTimeBetweenAndMovieNameContaining(date, date.plusDays(1), name);
+	}
+	
+	public List<Event> findByStartTimeBetweenAndMovieNameContaining(LocalDateTime date, LocalDateTime dayAfter, String name);
 	
 	public List<Event> findByStartTimeBetween(LocalDateTime after, LocalDateTime before);
 	

@@ -18,8 +18,12 @@ public abstract interface EventRepositoryInt{
 	
 	public List<Event> getAllEvents();
 	
-	public List<Event> getEventsByDay(LocalDateTime day);
+	public List<Event> getEventsByDate(LocalDateTime date);
 	
 	public List<Event> getEventsByMovie(Movie movie);
+	
+	public List<Event> findByMovieNameContaining(String name);
+	
+	public List<Event> getEventsByDateAndName(LocalDateTime date, String name);
 	
 }

@@ -1,7 +1,6 @@
 package com.project2.cinema.entities;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,8 +15,8 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.project2.cinema.util.DateUtil;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -27,8 +26,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "events")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Event {
 
 	@Id
@@ -44,6 +41,15 @@ public class Event {
 	private LocalDateTime endTime;
 	@Column(name = "tickets_sold")
 	private int tickets_sold;
+	
+	public Event(int id, Movie movie, Theater theater, LocalDateTime startTime) {
+		super();
+		this.id = id;
+		this.movie = movie;
+		this.theater = theater;
+		this.startTime = startTime;
+		this.endTime = DateUtil.roundCeiling(startTime.plusSeconds(movie.getLength().getSeconds()));
+	}
 	
 	
 

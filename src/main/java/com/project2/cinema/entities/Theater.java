@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,6 +39,7 @@ public class Theater {
 	private int theaterNumber;
 	@Column
 	private int seats;
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "theater")
 	@Column
 	private List<Event> events;
